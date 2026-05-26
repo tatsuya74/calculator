@@ -11,6 +11,11 @@ class Calculator:
         self.display_var = tk.StringVar(value="0")
 
         self._build_ui()
+        self._bind_keys()
+
+    def _bind_keys(self):
+        self.root.bind("<Return>", lambda e: self._on_click("="))
+        self.root.bind("<Escape>", lambda e: self._on_click("C"))
 
     def _build_ui(self):
         display = tk.Entry(
